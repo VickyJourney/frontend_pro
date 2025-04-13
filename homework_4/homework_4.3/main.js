@@ -1,6 +1,18 @@
+const capitalResponses = {
+    Kyiv: 'You live in the capital of Ukraine',
+    London: 'You live in the capital of Great Britain',
+    Washington: 'You live in the capital of the USA',
+}
+
+const sportResponses = {
+    surfing: 'Cool! Do you want to become a pro surfer like Kelly Slater?',
+    tennis: 'Cool! Do you want to become a pro tennis player like Iga Swiatek?',
+    football: 'Cool! Do you want to become a pro football player like Lionel Messi?',
+}
+
 const birthYear = prompt('What year were you born?') || 'unknown year';
 const currentYear = new Date().getFullYear();
-let userAge = 0;
+let userAge = null;
 if (birthYear !== 'unknown year' && !isNaN(+birthYear)) {
     userAge = currentYear - +birthYear;
 } else {
@@ -21,22 +33,22 @@ if (userSport === 'unknown sport') {
     alert('It is a pitty you have not provided the name of the sport.');
 }
 
-let message = 'You are ' + userAge + ' years old.' + '\n';
-message += (userCity === 'Kyiv' || userCity === 'London' || userCity === 'Washington')
-    ? 'You live in the capital!\n'
+let message =
+    userAge 
+        ? 'You are ' + userAge + ' years old.' + '\n'
+        : '';
+const capitalResponse = capitalResponses[userCity];
+message += capitalResponse
+    ? `${capitalResponse}\n`
     : 'You live in ' + userCity + '.\n';
-if (userSport === "surfing") {
-    message += 'Do you want to become a pro surfer like Kelly Slater?';
-} else if (userSport === "tennis") {
-    message += 'Do you want to become a pro tennis player like Iga Swiatek?';
-}
-else if (userSport === "football") {
-    message += 'Do you want to become a pro football player like Lionel Messi?';
-} 
+
+const sportResponse = sportResponses[userSport];
+message += sportResponse 
+    ? `${sportResponse}\n`
+    : ''
+
 alert(message);
 
 
-
-// if null or not a correct value
 
 

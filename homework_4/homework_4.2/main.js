@@ -1,7 +1,8 @@
 const userNumber = prompt('Enter a 3-digit number');
+const isDigitNumber = !isNaN(+userNumber);
 const myNumber = userNumber.split('');
 
-if (myNumber.length !== 3) {
+if (!isDigitNumber || myNumber.length !== 3) {
     console.log('Please enter a 3-digit number');
 } else {
     switch (true) {
@@ -21,14 +22,3 @@ if (myNumber.length !== 3) {
             console.log('all digits are different');
     }
 }
-
-//if letters it still works
-
-/*
-if (userInput !== null && /^\d{3}$/.test(userInput.trim())) {
-  const digits = userInput.trim().split('').map(Number);
-  console.log('Digits:', digits);
-} else {
-  console.log('Invalid input!');
-}
-  */
