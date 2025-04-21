@@ -1,4 +1,4 @@
-const day = prompt("Enter the day of the week (1-7):");
+// const day = prompt("Enter the day of the week (1-7):");
 // const numberOfDay = parseInt(day);
 
 // if (isNaN(numberOfDay) || numberOfDay < 1 || numberOfDay > 7) {
@@ -31,7 +31,6 @@ const day = prompt("Enter the day of the week (1-7):");
 // }
 // }
 
-
 // const number1 = parseInt(prompt("Enter the first number:"));
 // const operator = prompt("Enter the operator (+, -, *, /):");
 // const number2 = parseInt(prompt("Enter the second number:"));
@@ -46,13 +45,13 @@ const day = prompt("Enter the day of the week (1-7):");
 //         case '+':
 //             result = number1 + number2;
 //             break;
-//         case '-':   
+//         case '-':
 //             result = number1 - number2;
 //             break;
 //         case '*':
 //             result = number1 * number2;
 //             break;
-//         case '/':        
+//         case '/':
 //             (number2 !== 0) ? result = number1 / number2 : console.log("Cannot divide by zero.");
 //             break;
 //         default:
@@ -62,21 +61,15 @@ const day = prompt("Enter the day of the week (1-7):");
 //     console.log(`Result: ${result}`);
 // }
 
-
-
-
-
 // let i = 3;
 // while (i) {
 //     alert(i--);
 // }
 
-
 // let i = 3;
 // while (i) {
 //     alert(--i);
 // }
-
 
 // let result = '';
 
@@ -96,7 +89,6 @@ const day = prompt("Enter the day of the week (1-7):");
 // }
 //     while (i > 5);
 
-
 // const person = {
 //     name: 'John',
 //     age: 30,
@@ -112,3 +104,89 @@ const day = prompt("Enter the day of the week (1-7):");
 // for (let num of numbers) {
 //     console.log(num);
 // }
+
+// const userName = prompt("Enter your name:");
+
+// function showName() {
+//   alert(`Hello, ${userName}!`);
+// }
+
+// showName();
+//----------------------------------------
+// let userName = "Stas";
+
+// function showName() {
+//   let userName = "Vova";
+
+//   let message = `Hi, ${userName}!`;
+//   alert(message);
+// }
+
+// showName(); // Hi, Vova!
+
+// alert(userName); // Stas
+
+//----------------------------------------
+// function showMessage(from, text) {
+//   alert(from + ": " + text);
+// }
+// showMessage("Ann", "Hello!");
+// showMessage("Andy", "Bye!");
+//----------------------------------------
+
+// function showMin(num1, num2) {
+//   if (num1 > num2) {
+//     return num2;
+//   }
+//   return num1;
+// }
+// console.log(showMin(5, 10));
+//-----------------------------------------
+
+// function calcPow(num, pow) {
+//   let result = num;
+//   for (let i = 1; i < pow; i++) {
+//     result *= num;
+//   }
+//   return result;
+// }
+
+// console.log(calcPow(2, 4));
+//-------------------------------------
+
+// const numbers = [1, 2, 3, 4, 5];
+// const squaredNumbers = numbers.map((num) => num * num);
+// console.log(squaredNumbers); // [1, 4, 9, 16, 25]
+//-------------------------------------
+
+// const arrowMathPlus = (a, b) => a + b;
+// const result = arrowMathPlus(5, 10);
+// console.log(result); // 15
+
+//------------------------------------ARRAYS---------------------
+
+// const fruits = ["apple", "orange", "banana"];
+
+// /* for(i = 0; i < fruits.length; i++){
+// console.log(fruits[i]);
+// } */
+
+// // for (i = fruits.length - 1; i >= 0; i--) {
+// //   console.log(fruits[i]);
+// // }
+
+// for (fruit of fruits) {
+//   console.log(fruit);
+// }
+
+/* fruits[0] = 'mandarin' */
+/* fruits.push('coco'); //add last element
+fruits.pop(); // remove last element
+fruits.unshift('mango'); // add 1st element
+fruits.shift(); // remove first element
+fruits.sort().reverse(); // sort alphabetically or reverse
+
+// let numOfFruits = fruits.length;
+
+/* let index = fruits.indexOf('banana');
+/* console.log(index); */
