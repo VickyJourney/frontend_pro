@@ -190,3 +190,68 @@ fruits.sort().reverse(); // sort alphabetically or reverse
 
 /* let index = fruits.indexOf('banana');
 /* console.log(index); */
+
+// const pi = 3.14159;
+// let radious;
+// let circumference;
+
+// document.getElementById("mySubmit").onclick = function () {
+//   radious = document.getElementById("myText").value;
+
+//   radious = Number(radious);
+//   circumference = 2 * pi * radious;
+//   document.getElementById("myH3").textContent = circumference + " cm";
+// };
+
+// const letters = ["a", "b", "a", "c", "a", "b"];
+
+// const count = {};
+
+// for (i = 0; i < letters.length; i++) {
+//   const letter = letters[i];
+//   if (count[letter]) {
+//     count[letter] += 1;
+//     console.log(count[letter]);
+//   } else {
+//     count[letter] = 1;
+//     console.log(count[letter]);
+//   }
+// }
+
+// console.log(count);
+
+// function coords(x) {
+//   return function (y) {
+//     return function (z) {
+//       return `coordinates ${8}, ${y}, ${z}`;
+//     };
+//   };
+// }
+
+// const coordinates2 = coords(10)(20);
+// const z = 5 - 3;
+
+// console.log(coordinates2(z));
+
+// function process(callback) {
+//   const result = 42;
+//   callback(result);
+// }
+
+// process(function (data) {
+//   console.log("Результат обробки: " + data);
+// });
+
+
+function fetchData(url, callback) {
+  setTimeout(function () {
+    const data = { name: 'John', age: 30 };
+    callback(data);
+  }, 1000);
+}
+
+fetchData('https://api.example.com/user', function (user) {
+  console.log('Отримані дані користувача: ' + JSON.stringify(user));
+});
+
+Отримані дані користувача: {"name":"John","age":30}
