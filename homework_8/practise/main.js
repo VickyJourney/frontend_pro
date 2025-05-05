@@ -316,19 +316,74 @@
 
 //-----------------------
 
-const crust = "Crust";
+// const crust = "Crust";
 
-function earth() {
-  const mantle = "Mantle";
+// function earth() {
+//   const mantle = "Mantle";
 
-  function showMessage() {
-    const core = "Core";
-    console.log(
-      `The earth is made up of the ${crust}, the ${mantle} and the ${core}`
-    );
-  }
-  return showMessage;
-}
+//   function showMessage() {
+//     const core = "Core";
+//     console.log(
+//       `The earth is made up of the ${crust}, the ${mantle} and the ${core}`
+//     );
+//   }
+//   return showMessage;
+// }
 
-let myFunc = earth();
-myFunc();
+// let myFunc = earth();
+// myFunc();
+
+//---------------------------
+const employees = [
+  { name: "Vicky", salary: 500 },
+  { name: "Marta", salary: 400 },
+  { name: "Max", salary: 300 },
+];
+
+const total = employees.reduce(function (sum, emp) {
+  return sum + emp.salary;
+}, 0);
+console.log(total);
+
+const roles = ["admin", "user", "user", "guest", "admin", "user"];
+
+const roleCounts = roles.reduce((acc, role) => {
+  acc[role] = (acc[role] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(roleCounts);
+
+const nested = [[1, 2], [3, 4], [5]];
+
+// const flattedArray = nested.reduce(function (acc, curr) {
+//   return acc.concat(curr);
+// }, []);
+
+const flat = nested.reduce((acc, curr) => acc.concat(curr), []);
+
+console.log(flat);
+
+const people = [
+  { name: "Max", age: 17 },
+  { name: "Anna", age: 21 },
+  { name: "Paul", age: 17 },
+];
+
+const groupAge = people.reduce(function (acc, person) {
+  const age = person.age;
+  if (!acc[age]) acc[age] = [];
+  acc[age].push(person);
+  return acc;
+}, {});
+
+console.log(groupAge);
+
+const user = { name: "Vicky", age: 29 };
+const updUser = { lastName: "Diordiczuk" };
+
+const mergedUser = Object.assign({}, user, updUser);
+
+const { name, age, lastName } = mergedUser;
+
+console.log(name, lastName);
