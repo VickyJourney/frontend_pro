@@ -242,16 +242,104 @@ fruits.sort().reverse(); // sort alphabetically or reverse
 //   console.log("Результат обробки: " + data);
 // });
 
+// function fetchData(url, callback) {
+//   setTimeout(function () {
+//     const data = { name: 'John', age: 30 };
+//     callback(data);
+//   }, 1000);
+// }
 
-function fetchData(url, callback) {
-  setTimeout(function () {
-    const data = { name: 'John', age: 30 };
-    callback(data);
-  }, 1000);
-}
+// fetchData('https://api.example.com/user', function (user) {
+//   console.log('Отримані дані користувача: ' + JSON.stringify(user));
+// });
 
-fetchData('https://api.example.com/user', function (user) {
-  console.log('Отримані дані користувача: ' + JSON.stringify(user));
+// Отримані дані користувача: { "name": "John", "age": 30 }
+
+// const contactBook = {
+//   myContacts: [
+//     { firstName: "Tonia", tel: "+48758374293", email: "tonia.b@gmail.com" },
+//     { firstName: "Katia", tel: "+35158374293", email: "katiushik@gmail.com" },
+//     { firstName: "Stas", tel: "+491827529431", email: "s1mpler@gmail.com" },
+//     { firstName: "Granny", tel: "+380637583793", email: "babcia123@gmail.com" },
+//   ],
+//   searchByName(name) {
+//     return this.myContacts.filter((contact) =>
+//       contact.firstName.toLowerCase().includes(name.toLowerCase())
+//     );
+//   },
+//   addContact(name, tel, email) {
+//     this.myContacts.push({ firstName: name, tel, email });
+//   },
+//   removeContactByName(name) {
+//     this.myContacts = this.myContacts.filter(
+//       (contact) => contact.firstName.toLowerCase() !== name.toLowerCase()
+//     );
+//   },
+// };
+
+// console.log(contactBook.searchByName("to"));
+// contactBook.addContact("Marta", "+487578493", "marta@gmail.com");
+// contactBook.removeContactByName("katia");
+
+// console.log(contactBook.myContacts);
+
+const orderManager = {
+  orders: [
+    {
+      id: "1",
+      customerName: "Ann",
+      items: [
+        { productName: "fanta", quantity: 1 },
+        { productName: "coke", quantity: 3 },
+        { productName: "sprite", quantity: 2 },
+      ],
+    },
+    {
+      id: "2",
+      customerName: "Max",
+      items: [
+        { productName: "fanta", quantity: 0 },
+        { productName: "coke", quantity: 4 },
+        { productName: "sprite", quantity: 2 },
+      ],
+    },
+    {
+      id: "3",
+      customerName: "Miguel",
+      items: [
+        { productName: "fanta", quantity: 1 },
+        { productName: "coke", quantity: 1 },
+        { productName: "water", quantity: 4 },
+      ],
+    },
+  ],
+
+  addOrder(obj) {
+    this.orders.push(obj);
+  },
+  getOrderById(orderId) {
+    return this.orders.find((order) => order.id === orderId);
+  },
+  removeOrderById(id) {
+    return (this.orders = this.orders.filter((order) => order.id !== id));
+  },
+  getTotalItemsByCustomer(name) {
+    return this.orders
+      .filter((order) =>
+        order.customerName.toLowerCase().includes(name.toLowerCase())
+      )
+      .flatMap((order) => order.items)
+      .reduce((sum, item) => (sum += item.quantity), 0);
+  },
+};
+
+orderManager.addOrder({
+  id: "4",
+  customerName: "Vicky",
+  items: [{ productName: "fanta", quantity: 10 }],
 });
 
-Отримані дані користувача: {"name":"John","age":30}
+console.log(orderManager.orders);
+console.log(orderManager.getOrderById("2"));
+console.log(orderManager.removeOrderById("2"));
+console.log(orderManager.getTotalItemsByCustomer("Vicky"));

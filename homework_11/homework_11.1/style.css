@@ -1,0 +1,53 @@
+#container {
+  position: relative;
+}
+
+.table {
+  border: solid 1px;
+  border-collapse: collapse;
+}
+
+.table tr:first-child {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.table tr td:first-child {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.caption {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.bg_color_dark {
+  background-color: rgb(234 210 189);
+  font-weight: bold;
+}
+
+.bg_color_light {
+  background-color: rgb(255 243 233);
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  text-align: center;
+  border: solid 1px;
+}
+
+.cell:hover {
+  cursor: pointer;
+  font-weight: bold;
+  transform: scale(1.2);
+  background-color: rgb(234 210 189);
+  ;
+}
