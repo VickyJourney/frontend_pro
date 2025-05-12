@@ -1,0 +1,24 @@
+.container {
+  padding-top: 100px;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 15px 10px;
+  cursor: pointer;
+  background-color: antiquewhite;
+  color: navy;
+  font-weight: bold;
+  border-radius: 8px;
+  border: solid 1px;
+  width: 200px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
