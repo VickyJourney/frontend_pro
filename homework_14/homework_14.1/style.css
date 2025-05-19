@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  width: 500px;
+  height: 300px;
+  transition: 0.5s;
+  position: relative;
+}
+
+img {
+  max-width: 500px;
+  opacity: 0;
+}
+
+.active {
+  opacity: 1;
+  transition: 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  user-select: none;
+}
+
+.btnNext,
+.btnPrev {
+  width: 80px;
+  height: 34px;
+  border: none;
+  background-color: antiquewhite;
+  font-family: cursive;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.dots {
+  justify-self: anchor-center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border: none;
+  background-color: antiquewhite;
+  font-family: cursive;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 4px;
+}
+
+.dot-active {
+  background-color: rgb(127, 94, 50);
+}
