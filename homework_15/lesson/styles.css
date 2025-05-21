@@ -1,0 +1,12 @@
+tbody {
+  font-family: sans-serif;
+}
+
+th {
+  border: 1px solid;
+}
+
+table {
+  border: 1px solid;
+  margin-top: 5px;
+}
