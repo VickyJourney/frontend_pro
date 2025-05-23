@@ -3,6 +3,7 @@ const btnAdd = document.querySelector(".form__btn");
 const userInput = document.querySelector(".form__input");
 const list = document.querySelector(".js--todos-wrapper");
 let todos = [];
+let taskToEdit = null;
 
 window.addEventListener("load", () => {
   todos = getCurrentState() ?? [];
@@ -15,9 +16,16 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   value = userInput.value;
-  uuid = crypto.randomUUID();
 
-  addTask(value, uuid);
+  if (btnAdd.classList.contains("modifyMode") && taskToEdit) {
+    updateTask(value);
+    btnAdd.textContent = "Додати";
+    btnAdd.classList.remove("modifyMode");
+    taskToEdit = null;
+  } else {
+    const uuid = crypto.randomUUID();
+    addTask(value, uuid);
+  }
 });
 
 function addTask(name, uuid) {
@@ -44,13 +52,26 @@ function createTodoElement({ name, uuid, isDone }) {
 
   task.appendChild(checkbox);
   task.appendChild(span);
-  // task.appendChild(addBtnToTask("Edit", "edit"));
+  task.appendChild(addBtnToTask("Edit", "edit"));
   task.appendChild(addBtnToTask("Видалити", "delete"));
   if (isDone) {
     task.classList.add("todo-item--checked");
     checkbox.checked = true;
   }
   list.appendChild(task);
+}
+
+function updateTask(newValue) {
+  if (!taskToEdit) return;
+
+  const uuid = taskToEdit.getAttribute("data-uuid");
+  taskToEdit.querySelector(".todo-item__description").textContent = newValue;
+  todos = todos.map((todo) =>
+    todo.uuid === uuid ? { ...todo, name: newValue } : todo
+  );
+
+  saveCurrentState(todos);
+  form.reset();
 }
 
 function saveCurrentState(currentTodos) {
@@ -79,50 +100,21 @@ function addBtnToTask(textBtn, textAttribute) {
   return btnRemove;
 }
 
-// function editTask() {
-//   const formToEdit = document.createElement("form");
-//   formToEdit.classList.add("formToEdit");
-
-//   inputToEdit = document.createElement("input");
-//   inputToEdit.type = "text";
-//   inputToEdit.value = value;
-//   inputToEdit.classList.add("form__input");
-
-//   const btnToEdit = document.createElement("button");
-//   btnToEdit.classList.add("form__btn");
-//   btnToEdit.textContent = "Редагувати";
-//   btnToEdit.setAttribute("data-name", "edit");
-
-//   formToEdit.appendChild(inputToEdit);
-//   formToEdit.appendChild(btnToEdit);
-//   // list.insertAdjacentElement("afterend", formToEdit);
-
-//   list.appendChild(formToEdit);
-
-//   formToEdit.addEventListener("submit", (event) => {
-//     event.preventDefault();
-
-//     const editedInput = inputToEdit.value;
-//     const uuid = localStorage.getItem("data-uuid");
-
-//     document.querySelector(`li[data-uuid='${uuid}'] span`).textContent =
-//       editedInput;
-//   });
-// }
-
 list.addEventListener("click", (event) => {
   const targetBtn = event.target.getAttribute("data-name");
   const targetTask = event.target.closest("li");
   const targetTaskUuid = targetTask.getAttribute("data-uuid");
 
   switch (targetBtn) {
-    // case "edit":
-    //   editTask();
-    //   inputToEdit.focus();
-    //   inputToEdit.value = targetTask.querySelector("li").textContent;
-
-    //   localStorage.setItem("data-uuid", targetTaskUuid);
-    //   break;
+    case "edit":
+      userInput.focus();
+      userInput.value = targetTask.querySelector(
+        ".todo-item__description"
+      ).textContent;
+      btnAdd.classList.add("modifyMode");
+      btnAdd.textContent = "Змінити";
+      taskToEdit = targetTask;
+      break;
     case "delete":
       targetTask.remove();
       todos = todos.filter((element) => element.uuid === targetTaskUuid);
