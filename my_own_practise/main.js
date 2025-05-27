@@ -283,63 +283,111 @@ fruits.sort().reverse(); // sort alphabetically or reverse
 
 // console.log(contactBook.myContacts);
 
-const orderManager = {
-  orders: [
-    {
-      id: "1",
-      customerName: "Ann",
-      items: [
-        { productName: "fanta", quantity: 1 },
-        { productName: "coke", quantity: 3 },
-        { productName: "sprite", quantity: 2 },
-      ],
-    },
-    {
-      id: "2",
-      customerName: "Max",
-      items: [
-        { productName: "fanta", quantity: 0 },
-        { productName: "coke", quantity: 4 },
-        { productName: "sprite", quantity: 2 },
-      ],
-    },
-    {
-      id: "3",
-      customerName: "Miguel",
-      items: [
-        { productName: "fanta", quantity: 1 },
-        { productName: "coke", quantity: 1 },
-        { productName: "water", quantity: 4 },
-      ],
-    },
-  ],
+// const orderManager = {
+//   orders: [
+//     {
+//       id: "1",
+//       customerName: "Ann",
+//       items: [
+//         { productName: "fanta", quantity: 1 },
+//         { productName: "coke", quantity: 3 },
+//         { productName: "sprite", quantity: 2 },
+//       ],
+//     },
+//     {
+//       id: "2",
+//       customerName: "Max",
+//       items: [
+//         { productName: "fanta", quantity: 0 },
+//         { productName: "coke", quantity: 4 },
+//         { productName: "sprite", quantity: 2 },
+//       ],
+//     },
+//     {
+//       id: "3",
+//       customerName: "Miguel",
+//       items: [
+//         { productName: "fanta", quantity: 1 },
+//         { productName: "coke", quantity: 1 },
+//         { productName: "water", quantity: 4 },
+//       ],
+//     },
+//   ],
 
-  addOrder(obj) {
-    this.orders.push(obj);
-  },
-  getOrderById(orderId) {
-    return this.orders.find((order) => order.id === orderId);
-  },
-  removeOrderById(id) {
-    return (this.orders = this.orders.filter((order) => order.id !== id));
-  },
-  getTotalItemsByCustomer(name) {
-    return this.orders
-      .filter((order) =>
-        order.customerName.toLowerCase().includes(name.toLowerCase())
-      )
-      .flatMap((order) => order.items)
-      .reduce((sum, item) => (sum += item.quantity), 0);
-  },
-};
+//   addOrder(obj) {
+//     this.orders.push(obj);
+//   },
+//   getOrderById(orderId) {
+//     return this.orders.find((order) => order.id === orderId);
+//   },
+//   removeOrderById(id) {
+//     return (this.orders = this.orders.filter((order) => order.id !== id));
+//   },
+//   getTotalItemsByCustomer(name) {
+//     return this.orders
+//       .filter((order) =>
+//         order.customerName.toLowerCase().includes(name.toLowerCase())
+//       )
+//       .flatMap((order) => order.items)
+//       .reduce((sum, item) => (sum += item.quantity), 0);
+//   },
+// };
 
-orderManager.addOrder({
-  id: "4",
-  customerName: "Vicky",
-  items: [{ productName: "fanta", quantity: 10 }],
-});
+// orderManager.addOrder({
+//   id: "4",
+//   customerName: "Vicky",
+//   items: [{ productName: "fanta", quantity: 10 }],
+// });
 
-console.log(orderManager.orders);
-console.log(orderManager.getOrderById("2"));
-console.log(orderManager.removeOrderById("2"));
-console.log(orderManager.getTotalItemsByCustomer("Vicky"));
+// console.log(orderManager.orders);
+// console.log(orderManager.getOrderById("2"));
+// console.log(orderManager.removeOrderById("2"));
+// console.log(orderManager.getTotalItemsByCustomer("Vicky"));
+
+// Функція-конструктор для геометричної фігури "Shape"
+function Shape() {
+  this.type = "Shape";
+
+  // Метод для обчислення площі фігури (загальний метод)
+  // this.calculateArea = function () {
+  //   return "Cannot calculate the area of a generic shape.";
+  // };
+}
+
+// Функція-конструктор для кола
+function Circle(radius) {
+  Shape.call(this); // Виклик конструктора "Shape"
+  this.type = "Circle";
+  this.radius = radius;
+
+  // Перевизначений метод для обчислення площі кола
+  this.calculateArea = function () {
+    return Math.PI * this.radius ** 2;
+  };
+}
+
+// Функція-конструктор для прямокутника
+function Rectangle(width, height) {
+  Shape.call(this); // Виклик конструктора "Shape"
+  this.type = "Rectangle";
+  this.width = width;
+  this.height = height;
+
+  // Перевизначений метод для обчислення площі прямокутника
+  this.calculateArea = function () {
+    return this.width * this.height;
+  };
+}
+
+// Функція для обчислення площі будь-якої фігури (використовує поліморфізм)
+function getArea(shape) {
+  return shape.calculateArea();
+}
+
+// Створення екземплярів функцій-конструкторів
+const circle = new Circle(5);
+const rectangle = new Rectangle(4, 6);
+
+// Виклик функції getArea з різними фігурами
+console.log(getArea(circle)); // "78.53981633974483" (площа кола)
+console.log(getArea(rectangle)); // "24" (площа прямокутника)
