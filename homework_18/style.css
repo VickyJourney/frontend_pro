@@ -1,0 +1,38 @@
+p {
+  font-size: 22px;
+  padding: 5px 10px;
+  color: green;
+  margin: 0;
+}
+
+button {
+  border: none;
+  color: brown;
+  background: bisque;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin: 10px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.container {
+  margin-top: 30px;
+  padding: 20px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.red {
+  color: red;
+}
+
+.hide {
+  display: none;
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+}
