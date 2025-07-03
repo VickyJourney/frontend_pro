@@ -1,8 +1,8 @@
 import { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Header from "./components/Header";
 import BtnResetResult from "./components/BtnResetResult";
+import Header from "./components/Header";
 import BtnShowResult from "./components/BtnShowResult";
 import EmojiBox from "./components/EmojiBox";
 
