@@ -50,16 +50,6 @@ class App extends Component {
     localStorage.setItem("activities", JSON.stringify(resetedCount));
   };
 
-  // getWinner = () => {
-  //   const { activities } = this.state;
-
-  //   if (activities.length === 0) return null;
-
-  //   return activities.reduce((max, activity) =>
-  //     activity.count > max.count ? activity : max
-  //   );
-  // };
-
   getWinners = () => {
     const { activities } = this.state;
     if (activities.length === 0) return [];

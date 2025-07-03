@@ -19,14 +19,11 @@ class BtnShowResult extends Component {
     return (
       <>
         <Button variant="outline-success" onClick={this.handleToggleWinner}>
-          Show the winner!
+          {this.state.isWinnerHidden ? "Show the winner" : "Hide results"}
         </Button>
         {!this.state.isWinnerHidden && winners.length > 0 && (
           <Winner winners={winners} />
         )}
-        {/* {this.state.isWinnerHidden ? null : (
-          <Winner text={winner?.text} count={winner?.count} />
-        )} */}
       </>
     );
   }
