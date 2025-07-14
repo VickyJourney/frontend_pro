@@ -3,9 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: rgba(47, 41, 89, 0.87);
-  background-color: #f3eeee;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -20,12 +17,10 @@
 
 .content a {
   font-weight: 500;
-  color: black;
   text-decoration: none;
 }
 
 .content a:hover {
-  color: rgb(255, 171, 35);
   text-decoration: underline;
 }
 
@@ -46,7 +41,6 @@ li {
 }
 
 .header {
-  border-bottom: 1px solid rgb(255, 171, 35);
   margin-bottom: 10px;
 }
 
@@ -73,12 +67,11 @@ li {
   width: 100%;
   position: absolute;
   bottom: 0px;
-  border-top: 1px solid rgb(255, 171, 35);
 }
 
 .content .active {
   font-weight: bold;
-  color: rgb(255, 171, 35)
+  text-decoration: underline;
 }
 
 h1 {

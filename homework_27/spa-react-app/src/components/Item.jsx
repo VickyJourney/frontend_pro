@@ -13,12 +13,6 @@ const Item = ({ text, done, onDone, onDelete }) => {
         <Button variant="danger" onClick={onDelete}>
           Delete
         </Button>
-        {/* <button className="btn btn-success mr-2" onClick={onDone}>
-          Done
-        </button>
-        <button className="btn btn-danger" onClick={onDelete}>
-          Delete
-        </button> */}
       </div>
     </li>
   );
