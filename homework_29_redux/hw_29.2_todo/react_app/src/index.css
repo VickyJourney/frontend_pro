@@ -1,0 +1,11 @@
+body {
+  padding: 15px;
+}
+
+.form_container {
+  display: flex;
+}
+
+.btn {
+  height: 56px;
+}
