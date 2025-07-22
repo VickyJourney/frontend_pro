@@ -4,6 +4,7 @@ import TodoForm from "./components/TodoForm";
 import ItemsList from "./components/ItemsList";
 import { Provider } from "react-redux";
 import store from "../src/redux/store";
+import Footer from "./components/Footer";
 
 function App() {
   const initialValues = { name: "" };
@@ -35,6 +36,7 @@ function App() {
         {(formikProps) => <TodoForm {...formikProps} />}
       </Formik>
       <ItemsList />
+      <Footer />
     </Provider>
   );
 }
