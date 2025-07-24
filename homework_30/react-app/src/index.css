@@ -1,0 +1,9 @@
+.input-group .btn {
+  background-color: #646cff;
+  color: #ffffff;
+}
+
+.input-group .btn:hover {
+  background-color: #262fe6;
+  color: #ffffff;
+}
