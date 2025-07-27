@@ -1,0 +1,17 @@
+body {
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.form_container {
+  display: flex;
+}
+
+.btn {
+  height: 56px;
+}
+
+.done {
+  text-decoration: line-through;
+  color: gray;
+}
