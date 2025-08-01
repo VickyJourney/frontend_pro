@@ -10,7 +10,11 @@ const ClearButton = () => {
   };
 
   return (
-    <Button onClick={handleClear} variant="outlined">
+    <Button
+      onClick={handleClear}
+      variant="outlined"
+      sx={{ mb: 2, width: "80px" }}
+    >
       Clear
     </Button>
   );

@@ -3,8 +3,9 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { Stack } from "@mui/material";
+import { Stack, ListItemIcon } from "@mui/material";
 import { Link } from "react-router-dom";
+import CodeIcon from "@mui/icons-material/Code";
 
 import { useLocation } from "react-router-dom";
 
@@ -18,23 +19,43 @@ const Header = () => {
   ];
 
   return (
-    <Box component="header" sx={{ mb: "20px" }}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Viktoria Diordiczuk
-          </Typography>
+    <Box component="header">
+      <AppBar
+        position="static"
+        sx={{
+          background: "linear-gradient(90deg, #128f95ff 0%, #0ecad8ff 100%)",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+        }}
+      >
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <CodeIcon sx={{ mr: 1, fontSize: 28, color: "white" }} />
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: 700, fontSize: "24px", color: "white" }}
+            >
+              Viktoria Diordiczuk
+            </Typography>
+          </Box>
           <Stack direction="row" spacing={2}>
             {navItems.map(({ label, path }) => (
               <Button
                 key={path}
-                color="inherit"
                 component={Link}
                 to={path}
                 sx={{
-                  borderBottom:
-                    location.pathname === path ? "2px solid #fff" : "none",
-                  borderRadius: 0,
+                  color: location.pathname === path ? "#fff" : "#e0e0e0",
+                  backgroundColor:
+                    location.pathname === path
+                      ? "rgba(255, 255, 255, 0.2)"
+                      : "transparent",
+                  fontWeight: 600,
+                  borderRadius: "20px",
+                  px: 2,
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  },
                 }}
               >
                 {label}
@@ -48,30 +69,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// const Header = () => {
-//   return (
-//     <Box sx={{ flexGrow: 1 }}>
-//       <AppBar position="static">
-//         <Toolbar>
-//           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-//             Viktoria Diordiczuk
-//           </Typography>
-//           <Stack direction="row" spacing={2}>
-//             <Button color="inherit" component={Link} to="/">
-//               About me
-//             </Button>
-//             <Button color="inherit" component={Link} to="/todo">
-//               Todo List
-//             </Button>
-//             <Button color="inherit" component={Link} to="/swapi">
-//               Swapi
-//             </Button>
-//           </Stack>
-//         </Toolbar>
-//       </AppBar>
-//     </Box>
-//   );
-// };
-
-// export default Header;

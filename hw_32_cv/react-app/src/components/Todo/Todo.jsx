@@ -1,11 +1,12 @@
 import { Container } from "@mui/material";
-import Form from "./Form";
-import List from "./List";
+// import List from "./List";
+import TodoForm from "./Form";
+import ItemsList from "./List";
 
 const Todo = () => (
   <Container sx={{ flexGrow: 1 }}>
-    <Form />
-    <List />
+    <TodoForm />
+    <ItemsList />
   </Container>
 );
 

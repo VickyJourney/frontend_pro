@@ -1,7 +1,7 @@
 import { Box, Container, Stack, Link, Divider } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
-import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
+import TelegramIcon from "@mui/icons-material/Telegram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Footer = () => (
@@ -42,7 +42,7 @@ const Footer = () => (
         <Stack direction="row" alignItems="center" spacing={1}>
           <EmailIcon color="primary" />
           <Link
-            href="mailto:viktoria@gmail.com"
+            href="mailto:viktoria.diordiczuk@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             color="inherit"
@@ -52,15 +52,15 @@ const Footer = () => (
           </Link>
         </Stack>
         <Stack direction="row" alignItems="center" spacing={1}>
-          <PhoneIphoneIcon color="primary" />
+          <TelegramIcon color="primary" />
           <Link
-            href="tel:+48030393029"
+            href="https://t.me/vickyjourney"
             target="_blank"
             rel="noopener noreferrer"
             color="inherit"
             underline="hover"
           >
-            Phone
+            Telegram
           </Link>
         </Stack>
       </Stack>

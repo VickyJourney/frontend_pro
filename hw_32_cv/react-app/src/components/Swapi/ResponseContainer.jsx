@@ -10,12 +10,11 @@ const ResponseContainer = () => {
   return (
     <TextField
       multiline
-      rows={20}
+      rows={15}
       value={displayText}
       InputProps={{ readOnly: true }}
-      fullWidth
       variant="outlined"
-      sx={{ mb: "10px" }}
+      sx={{ mb: 2 }}
     />
   );
 };

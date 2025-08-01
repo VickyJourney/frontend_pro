@@ -27,7 +27,7 @@ const SearchBar = () => {
   };
 
   return (
-    <Stack direction="row" spacing={0} alignItems="center" sx={{ mb: "10px" }}>
+    <Stack direction="row" spacing={0} alignItems="center" sx={{ mb: 2 }}>
       <TextField
         fullWidth
         placeholder="e.g. people/1"
