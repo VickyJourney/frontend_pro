@@ -105,7 +105,7 @@ const AboutMe = () => (
         overflow: "hidden",
         flexShrink: 0,
         position: "absolute",
-        top: "-50px",
+        top: "-70px",
         right: "-150px",
         transition: "transform 0.3s ease-in-out",
         "&:hover": {

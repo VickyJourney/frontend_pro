@@ -34,7 +34,7 @@ const Header = () => {
               variant="h6"
               sx={{ fontWeight: 700, fontSize: "24px", color: "white" }}
             >
-              Viktoria Diordiczuk
+              e-Journey
             </Typography>
           </Box>
           <Stack direction="row" spacing={2}>

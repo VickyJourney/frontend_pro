@@ -31,6 +31,7 @@ const App = () => {
           <Container
             style={{
               minHeight: "100vh",
+              minWidth: "100vw",
               display: "flex",
               flexDirection: "column",
               padding: "0",
