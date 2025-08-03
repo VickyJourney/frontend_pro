@@ -2,11 +2,12 @@ import React from "react";
 import { Formik } from "formik";
 import TodoForm from "./components/TodoForm";
 import ItemsList from "./components/ItemsList";
-import { Provider } from "react-redux";
-import store from "../src/redux/store";
 import Footer from "./components/Footer";
+import { useDispatch } from "react-redux";
+import { addTodo } from "./redux/slice/todosSlice";
 
 function App() {
+  const dispatch = useDispatch();
   const initialValues = { name: "" };
 
   const validateName = (values) => {
@@ -21,10 +22,14 @@ function App() {
     return errors;
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = (values, { setSubmitting, resetForm }) => {
+    dispatch(addTodo(values.name));
+    resetForm();
+    setSubmitting(false);
+  };
 
   return (
-    <Provider store={store}>
+    <>
       <h1>Todo List</h1>
       <Formik
         initialValues={initialValues}
@@ -37,7 +42,7 @@ function App() {
       </Formik>
       <ItemsList />
       <Footer />
-    </Provider>
+    </>
   );
 }
 
